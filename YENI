@@ -1,0 +1,68 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Bienvenido: Vamos a realizar el  calculo de IMC");
+        Console.WriteLine("---------------------------------------");
+        Console.WriteLine();
+        
+        Console.Write("Ingresa tu genero (Masculino (M) / Femenino (F): ");
+        string genero = Console.ReadLine();
+
+        Console.Write("Ingresa tu nombre: ");
+        string nombre = Console.ReadLine();
+
+        Console.Write("Ingresa tu peso en kilos: ");
+        double peso = double.Parse(Console.ReadLine());
+
+        Console.Write("Ingresa tu edad: ");
+        int edad = int.Parse(Console.ReadLine());
+
+        double altura = ObtenerAltura();
+
+        double imc = CalcularIMC(peso, altura);
+        Console.WriteLine();
+        Console.WriteLine("------------------------------");
+        Console.WriteLine("Resultados:");
+        Console.WriteLine("------------------------------");
+        Console.WriteLine($"Nombre: {nombre}");
+        Console.WriteLine($"Genero: {genero}");
+        Console.WriteLine($"Peso: {peso} kg");
+        Console.WriteLine($"Edad: {edad} anios");
+        Console.WriteLine($"Altura: {altura} m");
+        Console.WriteLine($"IMC: {imc}");
+
+        if (imc < 18.5)
+        {
+            Console.WriteLine("Estado: Bajo peso");
+            Console.WriteLine("Recomendaciones:ALERTA. Asegurate de tener una dieta equilibrada y consulta con un nutricionista para mejorar tu estado de salud.");
+        }
+        else if (imc >= 18.5 && imc < 25)
+        {
+            Console.WriteLine("Estado: Saludable");
+            Console.WriteLine("Recomendaciones: FELICITACIONES. Sigue manteniendo un estilo de vida saludable, sigue con la adecuada alimentacion y haz ejercicio regularmente.");
+        }
+        else if (imc >= 25 && imc < 30)
+        {
+            Console.WriteLine("Estado: Sobrepeso");
+            Console.WriteLine("Recomendaciones:ALERTA. Considera realizar cambios en tu dieta, consulta con un nutricionista y aumenta la actividad fisica.");
+        }
+        else
+        {
+            Console.WriteLine("Estado: Obesidad"); 
+            Console.WriteLine("Recomendaciones: PELIGRO.  Consulta con un nutricionista tu estado de salud ya que con un grado de obesidad pones en riesgo tu vida. ANIMO");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Presiona cualquier tecla para salir...");
+        Console.ReadKey();
+    }
+
+    static double ObtenerAltura()
+    {
+        Console.Write("Ingresa tu altura en metros: ");
+        double altura = double.Parse(Console.ReadLine());
+        return altura;
+    }
